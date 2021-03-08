@@ -11,7 +11,6 @@ export default class TableHeader extends Component {
 		}
 		this.props.onSort(sortColumn);
 	};
-
 	render() {
 		return (
 			<thead>
