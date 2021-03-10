@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import _ from "lodash";
-
 export default class TableBody extends Component {
 	createKey = (item, column, valueProperty = this.props.valueProperty) => {
 		return item[valueProperty] + (column.path || column.key);
