@@ -13,7 +13,7 @@ export default class App extends Component {
 		return (
 			<>
 				<Navbar />
-				<main class="container">
+				<main className="container">
 					<Switch>
 						<Route path="/movies/:id" component={MovieForm} />
 						<Route path="/movies" component={Movies} />

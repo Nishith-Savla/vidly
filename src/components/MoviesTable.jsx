@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Like from "./common/Like";
 import Table from "./common/Table";
 import { Link } from "react-router-dom";
@@ -42,3 +43,11 @@ export default class MoviesTable extends Component {
 		);
 	}
 }
+
+MoviesTable.propTypes = {
+	movies: PropTypes.array.isRequired,
+	onSort: PropTypes.func.isRequired,
+	onLike: PropTypes.func.isRequired,
+	onDelete: PropTypes.func.isRequired,
+	sortColumn: PropTypes.object.isRequired,
+};
