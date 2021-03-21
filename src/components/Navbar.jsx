@@ -15,7 +15,8 @@ export default class Navbar extends Component {
 					data-target="#navbarNavAltMarkup"
 					aria-controls="navbarNavAltMarkup"
 					aria-expanded="false"
-					aria-label="Toggle navigation">
+					aria-label="Toggle navigation"
+				>
 					<span className="navbar-toggler-icon"></span>
 				</button>
 
@@ -32,6 +33,9 @@ export default class Navbar extends Component {
 						</NavLink>
 						<NavLink className="nav-link" to="/login">
 							Login
+						</NavLink>
+						<NavLink className="nav-link" to="/register">
+							Register
 						</NavLink>
 					</div>
 				</div>

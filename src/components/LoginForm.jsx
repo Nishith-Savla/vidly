@@ -16,7 +16,7 @@ export default class LoginForm extends Form {
 	doSubmit = () => {
 		// Call the server
 		// const username = React.createRef(); const username = this.username.current.value;
-		console.log("Submitted");
+		console.log("Logged in");
 	};
 
 	render() {
