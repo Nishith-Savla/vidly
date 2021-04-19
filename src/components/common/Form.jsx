@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Joi from "joi";
 import Input from "./Input";
+import Dropdown from "./Dropdown";
 
 export default class Form extends Component {
 	state = {
@@ -36,7 +37,7 @@ export default class Form extends Component {
 		this.doSubmit();
 	};
 
-	handleChange = ({ currentTarget: input }) => {
+	handleChange = ({ target: input }) => {
 		const errors = { ...this.state.errors };
 		const errorMessage = this.validateProperty(input);
 		if (errorMessage) errors[input.name] = errorMessage;
@@ -47,19 +48,29 @@ export default class Form extends Component {
 		this.setState({ data, errors });
 	};
 
-	renderInput(name, label, type = "text", autoComplete = undefined) {
+	renderInput = (name, label, type = "text", autoComplete = undefined) => (
+		<Input
+			type={type}
+			name={name}
+			label={label}
+			value={this.state.data[name]}
+			onChange={this.handleChange}
+			error={this.state.errors[name]}
+			autoComplete={autoComplete}
+		/>
+	);
+
+	renderDropdown = (name, label, values) => {
 		return (
-			<Input
-				type={type}
+			<Dropdown
 				name={name}
 				label={label}
-				value={this.state.data[name]}
+				values={values}
 				onChange={this.handleChange}
 				error={this.state.errors[name]}
-				autoComplete={autoComplete}
 			/>
 		);
-	}
+	};
 
 	renderSubmitButton(label) {
 		return (

@@ -54,6 +54,10 @@ export default class Movies extends Component {
 		this.setState({ selectedGenre: genre, currentPage: 1 });
 	};
 
+	handleNewMovieBtn = () => {
+		this.props.history.push("/movies/new");
+	};
+
 	getPagedData() {
 		const { currentPage, pageSize, sortColumn, selectedGenre, movies: allMovies } = this.state;
 
@@ -86,6 +90,9 @@ export default class Movies extends Component {
 				</div>
 
 				<div className="col">
+					<button className="btn btn-primary mb-2" onClick={this.handleNewMovieBtn}>
+						New Movie
+					</button>
 					<p>Showing {totalCount} movies from this database</p>
 					<MoviesTable
 						movies={movies}
@@ -94,7 +101,6 @@ export default class Movies extends Component {
 						onDelete={this.handleDelete}
 						sortColumn={this.state.sortColumn}
 					/>
-
 					<Pagination
 						itemsCount={totalCount}
 						pageSize={this.state.pageSize}
